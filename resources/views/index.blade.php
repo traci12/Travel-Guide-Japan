@@ -21,15 +21,7 @@
                     <h2>Please select your destination</h2>
                     <form method="POST" action="/dashboard">
                         @csrf
-                        <select required class="form-select form-select-lg mb-3" aria-label=".form-select-lg destination">
-                            <option selected value="">Open this select menu</option>
-                            <option value="Tokyo, JP">Tokyo</option>
-                            <option value="Yokohama, JP">Yokohama</option>
-                            <option value="Kyoto, JP">Kyoto</option>
-                            <option value="Osaka, JP">Osaka</option>
-                            <option value="Sapporo, JP">Sapporo</option>
-                            <option value="Nagoya, JP">Nagoya</option>
-                        </select>
+                        <x-destination />
                         <button type="submit" class="btn btn-danger btn-lg m-3">Start Guide</button>
                     </form>
                     <p class="p-5">© Bizmates, Inc. all rights reserved</p>
