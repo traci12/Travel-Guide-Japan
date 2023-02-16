@@ -19,7 +19,7 @@
                     <img src="/images/logo.png" class="img-fluid m-3" width="128" alt="logo">
                     <h1 class="display-1 p-3">Welcome to Travel Guide Japan</h1>
                     <h2>Please select your destination</h2>
-                    <form method="POST" action="/dashboard">
+                    <form method="POST" action="/destination">
                         @csrf
                         <x-destination />
                         <button type="submit" class="btn btn-danger btn-lg m-3">Start Guide</button>
