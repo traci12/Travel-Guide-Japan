@@ -8,9 +8,18 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  background: url('/images/main-bg.jpg') no-repeat center center fixed;
+  background: url(/images/main-bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+}
+
+.dot-matrix {
+  background: url(/images/dot.png);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1
 }
