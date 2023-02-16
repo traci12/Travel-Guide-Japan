@@ -10819,3 +10819,8 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+body {
+  background: url("/images/main-bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  -o-background-size: cover;
+}
