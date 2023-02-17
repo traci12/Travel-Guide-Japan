@@ -5314,7 +5314,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['destination']
+  props: ['destination'],
+  mounted: function mounted() {
+    this.fetchData();
+  },
+  data: function data() {
+    return {
+      currentWeather: {
+        temp: '',
+        main: '',
+        desc: ''
+      }
+    };
+  },
+  methods: {
+    fetchData: function fetchData() {
+      var _this = this;
+      fetch('/weather/' + this.destination).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        _this.currentWeather.temp = Math.round(data.main.temp);
+        _this.currentWeather.main = data.weather[0].main;
+        _this.currentWeather.desc = data.weather[0].description;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -5340,9 +5364,9 @@ var render = function render() {
     staticClass: "container"
   }, [_c("h1", [_vm._v(_vm._s(_vm.destination))]), _vm._v(" "), _c("p", {
     staticClass: "display-1"
-  }, [_vm._v("30°C")]), _vm._v(" "), _c("p", {
+  }, [_vm._v(_vm._s(_vm.currentWeather.temp) + "°C")]), _vm._v(" "), _c("p", {
     staticClass: "lead"
-  }, [_vm._v("Cloudy")])])]);
+  }, [_vm._v(_vm._s(_vm.currentWeather.main))])])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
