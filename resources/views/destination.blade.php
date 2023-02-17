@@ -21,7 +21,8 @@
                 <weather-component :destination="'{{ $destination }}'"></weather-component>
             </div>
             <div class="col-md-8 col-sm-12 bg-white">
-                <h1 class="m-3">Places to Visit</h1>
+                <h1 class="m-3">Places to Visit in {{ $destination }}</h1>
+                <places-component :destination="'{{ $destination }}'"></places-component>
             </div>
         </div>
     </div>
