@@ -21,7 +21,7 @@
                     <h2>Please select your destination</h2>
                     <form method="POST" action="/destination">
                         @csrf
-                        <x-destination />
+                        <x-destination-form />
                         <button type="submit" class="btn btn-danger btn-lg m-3">Start Guide</button>
                     </form>
                     <p class="p-5">© Bizmates, Inc. all rights reserved</p>
