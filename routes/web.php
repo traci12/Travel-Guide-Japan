@@ -17,6 +17,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::post('/destination', function () {
-    return view('destination');
-});
+use App\Http\Controllers\DestinationController;
+Route::post('/destination', [DestinationController::class, 'index']);

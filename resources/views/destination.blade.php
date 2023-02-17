@@ -18,7 +18,7 @@
                 <a href="/">
                     <img src="/images/logo.png" class="position-absolute top-0 start-0 img-fluid m-3" width="72" alt="logo">
                 </a>
-                <weather-component></weather-component>
+                <weather-component :destination="'{{ $destination }}'"></weather-component>
             </div>
             <div class="col-md-8 col-sm-12 bg-white">
                 <h1 class="display-4 m-3">Places to Visit</h1>

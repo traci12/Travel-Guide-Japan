@@ -11,7 +11,7 @@
  */
 @endphp
 
-<select required class="form-select form-select-lg mb-3" aria-label=".form-select-lg destination">
+<select name="destination" required class="form-select form-select-lg mb-3" aria-label=".form-select-lg destination">
     <option selected value="">Open this select menu</option>
     <option value="Tokyo, JP">Tokyo</option>
     <option value="Yokohama, JP">Yokohama</option>

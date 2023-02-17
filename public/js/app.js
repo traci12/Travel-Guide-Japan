@@ -5313,7 +5313,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['destination']
+});
 
 /***/ }),
 
@@ -5332,21 +5334,17 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "row min-vh-100 align-items-center"
   }, [_c("div", {
     staticClass: "container"
-  }, [_c("h1", [_vm._v("Tokyo")]), _vm._v(" "), _c("p", {
+  }, [_c("h1", [_vm._v(_vm._s(_vm.destination))]), _vm._v(" "), _c("p", {
     staticClass: "display-1"
   }, [_vm._v("30°C")]), _vm._v(" "), _c("p", {
     staticClass: "lead"
   }, [_vm._v("Cloudy")])])]);
-}];
+};
+var staticRenderFns = [];
 render._withStripped = true;
 
 
