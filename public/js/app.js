@@ -5400,7 +5400,6 @@ __webpack_require__.r(__webpack_exports__);
       fetch('/forecast/' + this.destination).then(function (response) {
         return response.json();
       }).then(function (data) {
-        console.log(data.list);
         _this2.forecasts = data.list;
       });
     }
@@ -5522,8 +5521,8 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "row min-vh-100 align-items-center"
+  return _c("section", [_c("div", {
+    staticClass: "row align-items-center"
   }, [_c("div", {
     staticClass: "container p-5"
   }, [_c("h1", [_vm._v(_vm._s(_vm.destination))]), _vm._v(" "), !_vm.currentWeather.temp ? _c("pulse-loader", {
@@ -5535,9 +5534,11 @@ var render = function render() {
     staticClass: "display-1"
   }, [_vm._v(_vm._s(_vm.currentWeather.temp) + "°C")]) : _vm._e(), _vm._v(" "), _c("p", {
     staticClass: "lead"
-  }, [_vm._v(_vm._s(_vm.currentWeather.desc))]), _vm._v(" "), _vm._l(_vm.forecasts, function (forecast, index) {
+  }, [_vm._v(_vm._s(_vm.currentWeather.desc))])], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "row m-2"
+  }, _vm._l(_vm.forecasts, function (forecast, index) {
     return _c("div", {
-      staticClass: "card text-bg-light mb-3"
+      staticClass: "col-4 card text-bg-light rounded-0"
     }, [_c("div", {
       staticClass: "card-header"
     }, [_vm._v(_vm._s(forecast.dt_txt))]), _vm._v(" "), _c("div", {
@@ -5547,7 +5548,7 @@ var render = function render() {
     }, [_vm._v(_vm._s(Math.round(forecast.main.temp)) + "°C")]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
     }, [_vm._v(_vm._s(forecast.weather[0].description))])])]);
-  })], 2)]);
+  }), 0)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;

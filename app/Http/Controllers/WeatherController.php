@@ -55,7 +55,7 @@ class WeatherController extends Controller
         $destination = $request->destination;
 
         // set forecast limit
-        $limit = 8;
+        $limit = 6;
 
         // call api request
         $response = Http::get($apiUrl."/forecast?q=".$destination."&units=metric&cnt=".$limit."&APPID=".$apiKey);

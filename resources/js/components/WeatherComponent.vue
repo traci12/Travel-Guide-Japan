@@ -9,21 +9,26 @@
  * @since 2023
  */
 <template>
-  <div class="row min-vh-100 align-items-center">
-    <div class="container p-5">
-      <h1>{{ destination }}</h1>
+  <section>
+    <div class="row align-items-center">
+      <div class="container p-5">
+        <h1>{{ destination }}</h1>
 
-      <pulse-loader 
-          v-if="!currentWeather.temp" 
-          class="text-center m-5" 
-          :color="color">
-      </pulse-loader>
+        <pulse-loader 
+            v-if="!currentWeather.temp" 
+            class="text-center m-5" 
+            :color="color">
+        </pulse-loader>
 
-      <p v-if="currentWeather.temp" class="display-1">{{ currentWeather.temp }}°C</p>
+        <p v-if="currentWeather.temp" class="display-1">{{ currentWeather.temp }}°C</p>
 
-      <p class="lead">{{ currentWeather.desc }}</p>
+        <p class="lead">{{ currentWeather.desc }}</p>
+      </div>
 
-      <div v-for="(forecast, index) in forecasts" class="card text-bg-light mb-3">
+    </div>
+
+    <div class="row m-2">
+      <div v-for="(forecast, index) in forecasts" class="col-4 card text-bg-light rounded-0">
         <div class="card-header">{{ forecast.dt_txt }}</div>
         <div class="card-body">
           <h5 class="card-title">{{ Math.round(forecast.main.temp) }}°C</h5>
@@ -31,7 +36,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -70,7 +75,6 @@
         fetch('/forecast/' + this.destination)
           .then(response => response.json())
           .then(data => {
-            console.log(data.list);
             this.forecasts = data.list
           }
         )
