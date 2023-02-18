@@ -5424,7 +5424,7 @@ var render = function render() {
         target: "_blank",
         href: _vm.map + _vm.destination + " " + place.name + "/" + place.geocodes.main.latitude + "," + place.geocodes.main.longitude
       }
-    }, [_vm._v("\n                    Check Location\n                ")])])])]);
+    }, [_vm._v("\n              Check Location\n            ")])])])]);
   }), _vm._v(" "), _vm.limit < 50 && _vm.places ? _c("a", {
     staticClass: "text-center p-3",
     attrs: {
@@ -5433,7 +5433,7 @@ var render = function render() {
     on: {
       click: _vm.fetchData
     }
-  }, [_vm._v("\n        Load more...\n    ")]) : _vm._e()], 2);
+  }, [_vm._v("\n      Load more...\n    ")]) : _vm._e()], 2);
 };
 var staticRenderFns = [];
 render._withStripped = true;

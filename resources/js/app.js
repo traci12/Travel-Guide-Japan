@@ -30,5 +30,5 @@ Vue.component('places-component', require('./components/PlacesComponent.vue').de
  */
 
 const app = new Vue({
-    el: '#app',
+  el: '#app',
 });

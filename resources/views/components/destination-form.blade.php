@@ -11,12 +11,16 @@
  */
 @endphp
 
-<select name="destination" required class="form-select form-select-lg mb-3" aria-label=".form-select-lg destination">
-    <option selected value="">Open this select menu</option>
-    <option value="Tokyo, JP">Tokyo</option>
-    <option value="Yokohama, JP">Yokohama</option>
-    <option value="Kyoto, JP">Kyoto</option>
-    <option value="Osaka, JP">Osaka</option>
-    <option value="Sapporo, JP">Sapporo</option>
-    <option value="Nagoya, JP">Nagoya</option>
+<select
+    class="form-select form-select-lg mb-3"
+    required
+    name="destination"
+    aria-label=".form-select-lg destination">
+  <option selected value="">Open this select menu</option>
+  <option value="Tokyo, JP">Tokyo</option>
+  <option value="Yokohama, JP">Yokohama</option>
+  <option value="Kyoto, JP">Kyoto</option>
+  <option value="Osaka, JP">Osaka</option>
+  <option value="Sapporo, JP">Sapporo</option>
+  <option value="Nagoya, JP">Nagoya</option>
 </select>

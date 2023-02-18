@@ -13,17 +13,17 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        {{-- Scripts --}}
-        <script src="{{ mix('js/app.js') }}" defer></script>
+  <head>
+    {{-- Scripts --}}
+    <script src="{{ mix('js/app.js') }}" defer></script>
 
-        {{-- Styles --}}
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    </head>
-    <body class="mh-100">
-        <div id="app">
-            {{-- Include $slot component for addition contents. --}}
-            {{ $slot }}
-        </div>
-    </body>
+    {{-- Styles --}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  </head>
+  <body class="mh-100">
+    <div id="app">
+      {{-- Include $slot component for addition contents. --}}
+      {{ $slot }}
+    </div>
+  </body>
 </html>
