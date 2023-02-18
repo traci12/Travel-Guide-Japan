@@ -5525,7 +5525,7 @@ var render = function render() {
   return _c("div", {
     staticClass: "row min-vh-100 align-items-center"
   }, [_c("div", {
-    staticClass: "container"
+    staticClass: "container p-5"
   }, [_c("h1", [_vm._v(_vm._s(_vm.destination))]), _vm._v(" "), !_vm.currentWeather.temp ? _c("pulse-loader", {
     staticClass: "text-center m-5",
     attrs: {

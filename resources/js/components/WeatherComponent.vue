@@ -10,7 +10,7 @@
  */
 <template>
   <div class="row min-vh-100 align-items-center">
-    <div class="container">
+    <div class="container p-5">
       <h1>{{ destination }}</h1>
 
       <pulse-loader 
