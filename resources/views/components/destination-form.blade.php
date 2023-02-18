@@ -11,9 +11,8 @@
  */
 @endphp
 
-<select
+<select required
     class="form-select form-select-lg mb-3"
-    required
     name="destination"
     aria-label=".form-select-lg destination">
   <option selected value="">Open this select menu</option>

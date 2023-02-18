@@ -5451,7 +5451,7 @@ var render = function render() {
         _vm.searchPlace();
       }
     }
-  }, [_vm._v("Go")])]), _vm._v(" "), !_vm.places ? _c("pulse-loader", {
+  }, [_vm._v("\n      Go\n    ")])]), _vm._v(" "), !_vm.places ? _c("pulse-loader", {
     staticClass: "text-center m-3",
     attrs: {
       color: _vm.color

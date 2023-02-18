@@ -41,6 +41,13 @@ class PlacesController extends Controller
         return $response->json();
     }
 
+    /*
+     * The method to search a place.
+     *
+     * @request $request
+     * @config api config
+     * @return json object
+     */
     public function search(Request $request)
     {
         // load api configuration

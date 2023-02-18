@@ -11,8 +11,19 @@
 <template>
   <div class="row row-cols-1 row-cols-md-1 g-4">
     <div class="input-group mb-3">
-      <input v-model="search" name="search" type="text" class="form-control" placeholder="Search a place" aria-label="Search a place" aria-describedby="button-search">
-      <button v-on:click="limit = 0; searchPlace();" class="btn btn-outline-secondary" type="button" id="button-search">Go</button>
+      <input v-model="search" 
+          name="search" 
+          type="text" 
+          class="form-control" 
+          placeholder="Search a place" 
+          aria-label="Search a place" 
+          aria-describedby="button-search">
+      <button v-on:click="limit = 0; searchPlace();" 
+          class="btn btn-outline-secondary" 
+          type="button" 
+          id="button-search">
+        Go
+      </button>
     </div>
 
     <pulse-loader v-if="!places" class="text-center m-3" :color="color"></pulse-loader>
