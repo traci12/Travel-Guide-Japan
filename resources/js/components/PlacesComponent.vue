@@ -1,5 +1,6 @@
 <template>
     <div class="row row-cols-1 row-cols-md-1 g-4">
+        <pulse-loader v-if="!places" class="text-center m-3" :color="color"></pulse-loader>
         <div v-for="(place, index) in places" class="col-sm-12">
             <div class="card">
                 <div class="card-body">
@@ -21,6 +22,7 @@
         data() {
             return {
                 places: '',
+                color: '#495057',
             }
         },
         methods: {

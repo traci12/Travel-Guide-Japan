@@ -12,7 +12,8 @@
     <div class="row min-vh-100 align-items-center">
         <div class="container">
             <h1>{{ destination }}</h1>
-            <p class="display-1">{{ currentWeather.temp }}°C</p>
+            <pulse-loader v-if="!currentWeather.temp" class="text-center m-5" :color="color"></pulse-loader>
+            <p v-if="currentWeather.temp" class="display-1">{{ currentWeather.temp }}°C</p>
             <p class="lead">{{ currentWeather.main }}</p>
         </div>
     </div>
@@ -30,7 +31,8 @@
                     temp: '',
                     main: '',
                     desc: ''
-                }
+                },
+                color: 'white',
             }
         },
         methods: {
