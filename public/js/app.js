@@ -5320,6 +5320,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      map: 'https://www.google.com/maps/search/',
       places: '',
       color: '#495057',
       limit: 0
@@ -5420,9 +5421,10 @@ var render = function render() {
     }, [_vm._v(_vm._s(place.location.formatted_address))]), _vm._v(" "), _c("a", {
       staticClass: "btn btn-danger",
       attrs: {
-        href: "#"
+        target: "_blank",
+        href: _vm.map + _vm.destination + " " + place.name + "/" + place.geocodes.main.latitude + "," + place.geocodes.main.longitude
       }
-    }, [_vm._v("Check Location")])])])]);
+    }, [_vm._v("\n                    Check Location\n                ")])])])]);
   }), _vm._v(" "), _vm.limit < 50 && _vm.places ? _c("a", {
     staticClass: "text-center p-3",
     attrs: {
@@ -5431,7 +5433,7 @@ var render = function render() {
     on: {
       click: _vm.fetchData
     }
-  }, [_vm._v("Load more...")]) : _vm._e()], 2);
+  }, [_vm._v("\n        Load more...\n    ")]) : _vm._e()], 2);
 };
 var staticRenderFns = [];
 render._withStripped = true;
