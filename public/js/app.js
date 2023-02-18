@@ -5314,7 +5314,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['destination']
+  props: ['destination'],
+  mounted: function mounted() {
+    this.fetchData();
+  },
+  data: function data() {
+    return {
+      places: ''
+    };
+  },
+  methods: {
+    fetchData: function fetchData() {
+      var _this = this;
+      fetch('/places/' + this.destination).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        _this.places = data.results;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -5375,30 +5393,28 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "row row-cols-1 row-cols-md-1 g-4"
-  }, [_c("div", {
-    staticClass: "col-sm-12"
-  }, [_c("div", {
-    staticClass: "card"
-  }, [_c("div", {
-    staticClass: "card-body"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_vm._v("Place Name")]), _vm._v(" "), _c("p", {
-    staticClass: "card-text"
-  }, [_vm._v("Place Address")]), _vm._v(" "), _c("a", {
-    staticClass: "btn btn-danger",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Check Location")])])])])]);
-}];
+  }, _vm._l(_vm.places, function (place, index) {
+    return _c("div", {
+      staticClass: "col-sm-12"
+    }, [_c("div", {
+      staticClass: "card"
+    }, [_c("div", {
+      staticClass: "card-body"
+    }, [_c("h5", {
+      staticClass: "card-title"
+    }, [_vm._v(_vm._s(place.name))]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v(_vm._s(place.location.formatted_address))]), _vm._v(" "), _c("a", {
+      staticClass: "btn btn-danger",
+      attrs: {
+        href: "#"
+      }
+    }, [_vm._v("Check Location")])])])]);
+  }), 0);
+};
+var staticRenderFns = [];
 render._withStripped = true;
 
 

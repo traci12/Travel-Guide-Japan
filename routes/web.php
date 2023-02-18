@@ -22,3 +22,6 @@ Route::post('/destination', [DestinationController::class, 'index']);
 
 use App\Http\Controllers\WeatherController;
 Route::get('/weather/{destination}', [WeatherController::class, 'index']);
+
+use App\Http\Controllers\PlacesController;
+Route::get('/places/{destination}', [PlacesController::class, 'index']);

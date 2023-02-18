@@ -1,10 +1,10 @@
 <template>
     <div class="row row-cols-1 row-cols-md-1 g-4">
-        <div class="col-sm-12">
+        <div v-for="(place, index) in places" class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Place Name</h5>
-                    <p class="card-text">Place Address</p>
+                    <h5 class="card-title">{{ place.name }}</h5>
+                    <p class="card-text">{{ place.location.formatted_address }}</p>
                     <a href="#" class="btn btn-danger">Check Location</a>
                 </div>
             </div>
@@ -15,5 +15,22 @@
 <script>
     export default {
         props: ['destination'],
+        mounted() {
+            this.fetchData()
+        },
+        data() {
+            return {
+                places: '',
+            }
+        },
+        methods: {
+            fetchData() {
+                fetch('/places/' + this.destination)
+                    .then(response => response.json())
+                    .then(data => {
+                        this.places = data.results
+                    })
+            }
+        }
     }
 </script>
