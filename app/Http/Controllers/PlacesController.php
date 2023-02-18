@@ -32,8 +32,11 @@ class PlacesController extends Controller
         // get destination request
         $destination = $request->destination;
 
+        // set limits
+        $limit = $request->limit;
+
         // call api request
-        $response = Http::withHeaders(['Authorization' => $apiKey])->get($apiUrl."/search?near=".$destination);
+        $response = Http::withHeaders(['Authorization' => $apiKey])->get($apiUrl."/search?near=".$destination."&limit=".$limit);
 
         return $response->json();
     }

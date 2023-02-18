@@ -5321,13 +5321,15 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       places: '',
-      color: '#495057'
+      color: '#495057',
+      limit: 0
     };
   },
   methods: {
     fetchData: function fetchData() {
       var _this = this;
-      fetch('/places/' + this.destination).then(function (response) {
+      this.limit = this.limit + 5;
+      fetch('/places/' + this.destination + '/' + this.limit).then(function (response) {
         return response.json();
       }).then(function (data) {
         _this.places = data.results;
@@ -5402,7 +5404,9 @@ var render = function render() {
     attrs: {
       color: _vm.color
     }
-  }) : _vm._e(), _vm._v(" "), _vm._l(_vm.places, function (place, index) {
+  }) : _vm._e(), _vm._v(" "), _vm.places ? _c("p", {
+    staticClass: "text-center"
+  }, [_vm._v("0-" + _vm._s(_vm.limit) + " of 50 items")]) : _vm._e(), _vm._v(" "), _vm._l(_vm.places, function (place, index) {
     return _c("div", {
       staticClass: "col-sm-12"
     }, [_c("div", {
@@ -5419,7 +5423,15 @@ var render = function render() {
         href: "#"
       }
     }, [_vm._v("Check Location")])])])]);
-  })], 2);
+  }), _vm._v(" "), _vm.limit < 50 && _vm.places ? _c("a", {
+    staticClass: "text-center p-3",
+    attrs: {
+      href: "#"
+    },
+    on: {
+      click: _vm.fetchData
+    }
+  }, [_vm._v("Load more...")]) : _vm._e()], 2);
 };
 var staticRenderFns = [];
 render._withStripped = true;

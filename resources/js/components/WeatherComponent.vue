@@ -43,7 +43,8 @@
                         this.currentWeather.temp = Math.round(data.main.temp)
                         this.currentWeather.main = data.weather[0].main
                         this.currentWeather.desc = data.weather[0].description
-                    })
+                    }
+                )
             }
         }
     }
