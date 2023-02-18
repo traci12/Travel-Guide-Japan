@@ -37,4 +37,29 @@ class WeatherController extends Controller
 
         return $response->json();
     }
+
+    /*
+     * The method to call weather forecast.
+     *
+     * @request $request
+     * @config api config
+     * @return json object
+     */
+    public function forecast(Request $request)
+    {
+        // load api configuration
+        $apiUrl = config("api.openweathermap.url");
+        $apiKey = config("api.openweathermap.key");
+
+        // get destination request
+        $destination = $request->destination;
+
+        // set forecast limit
+        $limit = 8;
+
+        // call api request
+        $response = Http::get($apiUrl."/forecast?q=".$destination."&units=metric&cnt=".$limit."&APPID=".$apiKey);
+
+        return $response->json();
+    }
 }

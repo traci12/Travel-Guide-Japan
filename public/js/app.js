@@ -5368,7 +5368,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['destination'],
   mounted: function mounted() {
-    this.fetchData();
+    this.getWeather();
+    this.getForecast();
   },
   data: function data() {
     return {
@@ -5377,18 +5378,30 @@ __webpack_require__.r(__webpack_exports__);
         main: '',
         desc: ''
       },
+      forecasts: '',
       color: 'white'
     };
   },
   methods: {
-    fetchData: function fetchData() {
+    getWeather: function getWeather() {
       var _this = this;
       fetch('/weather/' + this.destination).then(function (response) {
         return response.json();
       }).then(function (data) {
         _this.currentWeather.temp = Math.round(data.main.temp);
         _this.currentWeather.main = data.weather[0].main;
-        _this.currentWeather.desc = data.weather[0].description;
+        _this.currentWeather.desc = data.weather[0].description.split(' ').map(function (word) {
+          return word.charAt(0).toUpperCase() + word.slice(1);
+        }).join(' ');
+      });
+    },
+    getForecast: function getForecast() {
+      var _this2 = this;
+      fetch('/forecast/' + this.destination).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        console.log(data.list);
+        _this2.forecasts = data.list;
       });
     }
   }
@@ -5522,7 +5535,19 @@ var render = function render() {
     staticClass: "display-1"
   }, [_vm._v(_vm._s(_vm.currentWeather.temp) + "°C")]) : _vm._e(), _vm._v(" "), _c("p", {
     staticClass: "lead"
-  }, [_vm._v(_vm._s(_vm.currentWeather.main))])], 1)]);
+  }, [_vm._v(_vm._s(_vm.currentWeather.desc))]), _vm._v(" "), _vm._l(_vm.forecasts, function (forecast, index) {
+    return _c("div", {
+      staticClass: "card text-bg-light mb-3"
+    }, [_c("div", {
+      staticClass: "card-header"
+    }, [_vm._v(_vm._s(forecast.dt_txt))]), _vm._v(" "), _c("div", {
+      staticClass: "card-body"
+    }, [_c("h5", {
+      staticClass: "card-title"
+    }, [_vm._v(_vm._s(Math.round(forecast.main.temp)) + "°C")]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v(_vm._s(forecast.weather[0].description))])])]);
+  })], 2)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;

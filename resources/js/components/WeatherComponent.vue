@@ -21,7 +21,15 @@
 
       <p v-if="currentWeather.temp" class="display-1">{{ currentWeather.temp }}°C</p>
 
-      <p class="lead">{{ currentWeather.main }}</p>
+      <p class="lead">{{ currentWeather.desc }}</p>
+
+      <div v-for="(forecast, index) in forecasts" class="card text-bg-light mb-3">
+        <div class="card-header">{{ forecast.dt_txt }}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ Math.round(forecast.main.temp) }}°C</h5>
+          <p class="card-text">{{ forecast.weather[0].description }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -30,7 +38,8 @@
   export default {
     props: ['destination'],
     mounted() {
-      this.fetchData()
+      this.getWeather()
+      this.getForecast()
     },
     data() {
       return {
@@ -39,20 +48,33 @@
           main: '',
           desc: ''
         },
+        forecasts: '',
         color: 'white',
       }
     },
     methods: {
-      fetchData() {
+      getWeather() {
         fetch('/weather/' + this.destination)
           .then(response => response.json())
           .then(data => {
             this.currentWeather.temp = Math.round(data.main.temp)
             this.currentWeather.main = data.weather[0].main
             this.currentWeather.desc = data.weather[0].description
+              .split(' ')
+              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(' ')
           }
         )
-      }
+      },
+      getForecast() {
+        fetch('/forecast/' + this.destination)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data.list);
+            this.forecasts = data.list
+          }
+        )
+      },
     }
   }
 </script>

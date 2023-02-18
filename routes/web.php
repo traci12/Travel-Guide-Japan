@@ -22,6 +22,7 @@ Route::post('/destination', [DestinationController::class, 'index']);
 
 use App\Http\Controllers\WeatherController;
 Route::get('/weather/{destination}', [WeatherController::class, 'index']);
+Route::get('/forecast/{destination}', [WeatherController::class, 'forecast']);
 
 use App\Http\Controllers\PlacesController;
 Route::get('/places/{destination}/{limit}', [PlacesController::class, 'index']);
