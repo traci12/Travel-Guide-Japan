@@ -5316,24 +5316,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['destination'],
   mounted: function mounted() {
-    this.fetchData();
+    this.fetchPlaces();
   },
   data: function data() {
     return {
       map: 'https://www.google.com/maps/search/',
       places: '',
       color: '#495057',
-      limit: 0
+      limit: 0,
+      search: ''
     };
   },
   methods: {
-    fetchData: function fetchData() {
+    fetchPlaces: function fetchPlaces() {
       var _this = this;
+      this.places = '';
       this.limit = this.limit + 5;
       fetch('/places/' + this.destination + '/' + this.limit).then(function (response) {
         return response.json();
       }).then(function (data) {
         _this.places = data.results;
+      });
+    },
+    searchPlace: function searchPlace() {
+      var _this2 = this;
+      this.places = '';
+      this.limit = this.limit + 5;
+      console.log('/places/' + this.destination + '/' + this.limit + '/' + this.search);
+      fetch('/places/' + this.destination + '/' + this.limit + '/' + this.search).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        _this2.places = data.results;
       });
     }
   }
@@ -5400,7 +5413,45 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "row row-cols-1 row-cols-md-1 g-4"
-  }, [!_vm.places ? _c("pulse-loader", {
+  }, [_c("div", {
+    staticClass: "input-group mb-3"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.search,
+      expression: "search"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      name: "search",
+      type: "text",
+      placeholder: "Search a place",
+      "aria-label": "Search a place",
+      "aria-describedby": "button-search"
+    },
+    domProps: {
+      value: _vm.search
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.search = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-outline-secondary",
+    attrs: {
+      type: "button",
+      id: "button-search"
+    },
+    on: {
+      click: function click($event) {
+        _vm.limit = 0;
+        _vm.searchPlace();
+      }
+    }
+  }, [_vm._v("Go")])]), _vm._v(" "), !_vm.places ? _c("pulse-loader", {
     staticClass: "text-center m-3",
     attrs: {
       color: _vm.color
@@ -5431,7 +5482,9 @@ var render = function render() {
       href: "#"
     },
     on: {
-      click: _vm.fetchData
+      click: function click($event) {
+        _vm.search == "" ? _vm.fetchPlaces() : _vm.searchPlace();
+      }
     }
   }, [_vm._v("\n      Load more...\n    ")]) : _vm._e()], 2);
 };

@@ -10,6 +10,11 @@
  */
 <template>
   <div class="row row-cols-1 row-cols-md-1 g-4">
+    <div class="input-group mb-3">
+      <input v-model="search" name="search" type="text" class="form-control" placeholder="Search a place" aria-label="Search a place" aria-describedby="button-search">
+      <button v-on:click="limit = 0; searchPlace();" class="btn btn-outline-secondary" type="button" id="button-search">Go</button>
+    </div>
+
     <pulse-loader v-if="!places" class="text-center m-3" :color="color"></pulse-loader>
 
       <p v-if="places" class="text-center">0-{{limit}} of 50 items</p>
@@ -30,7 +35,7 @@
 
       <a href="#" 
           v-if="limit < 50 && places" 
-          v-on:click="fetchData" 
+          v-on:click="search == '' ? fetchPlaces() : searchPlace();" 
           class="text-center p-3">
         Load more...
       </a>
@@ -41,7 +46,7 @@
   export default {
     props: ['destination'],
     mounted() {
-      this.fetchData()
+      this.fetchPlaces()
     },
     data() {
       return {
@@ -49,12 +54,24 @@
         places: '',
         color: '#495057',
         limit: 0,
+        search: '',
       }
     },
-    methods: {
-      fetchData() {
+    methods: { fetchPlaces() {
+        this.places = '';
         this.limit = this.limit + 5;
         fetch('/places/' + this.destination + '/' + this.limit)
+          .then(response => response.json())
+          .then(data => {
+            this.places = data.results
+          }
+        )
+      },
+      searchPlace() {
+        this.places = '';
+        this.limit = this.limit + 5;
+        console.log('/places/' + this.destination + '/' + this.limit + '/' + this.search);
+        fetch('/places/' + this.destination + '/' + this.limit + '/' + this.search)
           .then(response => response.json())
           .then(data => {
             this.places = data.results

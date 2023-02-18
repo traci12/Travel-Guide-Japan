@@ -36,7 +36,28 @@ class PlacesController extends Controller
         $limit = $request->limit;
 
         // call api request
-        $response = Http::withHeaders(['Authorization' => $apiKey])->get($apiUrl."/search?near=".$destination."&limit=".$limit);
+        $response = Http::withHeaders(['Authorization' => $apiKey])->get($apiUrl."/search?near=".$destination."&sort=POPULARITY&limit=".$limit);
+
+        return $response->json();
+    }
+
+    public function search(Request $request)
+    {
+        // load api configuration
+        $apiUrl = config("api.foursquare.url");
+        $apiKey = config("api.foursquare.key");
+
+        // get search query request
+        $search = $request->search;
+
+        // get destination request
+        $destination = $request->destination;
+
+        // set limits
+        $limit = $request->limit;
+
+        // call api request
+        $response = Http::withHeaders(['Authorization' => $apiKey])->get($apiUrl."/search?query=".$search."&near=".$destination."&sort=POPULARITY&limit=".$limit);
 
         return $response->json();
     }
