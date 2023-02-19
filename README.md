@@ -28,10 +28,17 @@ Travel Guide Japan is made from a popular PHP framework called Laravel. The UI/U
 - [Bootstrap UI & VueJS UI](https://laravel.com/docs/7.x/frontend)
 - Additional component: [Vue Spinner](https://github.com/greyby/vue-spinner)
 
+Provide the API credentials for the following configuration below from .env to extract weather and places information:
+
+- OPENWEATHERMAP_KEY=
+- FOURSQUARE_KEY=
+
+*OPENWEATHERMAP_KEY is available at [https://openweathermap.org/forecast5](https://openweathermap.org/forecast5) and FOURSQUARE_KEY at [https://location.foursquare.com/developer/reference/places-api-get-started](https://location.foursquare.com/developer/reference/places-api-get-started).
+
 ## Design Choice
 
 The site is designed to be mobile-first. Most foreign tourists will use their portable and/or mobile devices to discover Japan as it's readily accessible anywhere and anytime. The site will determine your desired destination to filter your searches and provide information based on the rating of the place.
 
 ## License
 
-This project is an application requirement for an interview. Distribution is limited for educational purposes only.
+This project is an application requirement for an interview. The interviewer and company has the right to make use of the source code for their use. Distribution of this project for third party users is limited for educational purposes only.
