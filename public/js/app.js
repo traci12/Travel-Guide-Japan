@@ -5485,9 +5485,9 @@ var render = function render() {
     staticClass: "text-center"
   }, [_vm._v("0-" + _vm._s(_vm.limit) + " of 50 items")]) : _vm._e(), _vm._v(" "), _vm._l(_vm.places, function (place, index) {
     return _c("div", {
-      staticClass: "col-sm-12"
+      staticClass: "col-sm-12 fade-in-effect"
     }, [_c("div", {
-      staticClass: "card"
+      staticClass: "card text-bg-light bg-light shadow"
     }, [_c("div", {
       staticClass: "card-body"
     }, [_c("h5", {
@@ -5544,14 +5544,14 @@ var render = function render() {
       color: _vm.color
     }
   }) : _vm._e(), _vm._v(" "), _vm.currentWeather.temp ? _c("p", {
-    staticClass: "display-1"
+    staticClass: "display-1 fade-in-effect"
   }, [_vm._v(_vm._s(_vm.currentWeather.temp) + "°C")]) : _vm._e(), _vm._v(" "), _c("p", {
-    staticClass: "lead"
+    staticClass: "lead fade-in-effect"
   }, [_vm._v(_vm._s(_vm.currentWeather.desc))])], 1)]), _vm._v(" "), _c("div", {
     staticClass: "row m-2"
   }, _vm._l(_vm.forecasts, function (forecast, index) {
     return _c("div", {
-      staticClass: "col-4 card text-bg-light rounded-0"
+      staticClass: "col-4 card text-bg-dark border-white rounded-0 fade-in-effect"
     }, [_c("div", {
       staticClass: "card-header"
     }, [_vm._v(_vm._s(_vm.formatDate(forecast.dt_txt)))]), _vm._v(" "), _c("div", {

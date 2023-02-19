@@ -20,15 +20,15 @@
             :color="color">
         </pulse-loader>
 
-        <p v-if="currentWeather.temp" class="display-1">{{ currentWeather.temp }}°C</p>
+        <p v-if="currentWeather.temp" class="display-1 fade-in-effect">{{ currentWeather.temp }}°C</p>
 
-        <p class="lead">{{ currentWeather.desc }}</p>
+        <p class="lead fade-in-effect">{{ currentWeather.desc }}</p>
       </div>
 
     </div>
 
     <div class="row m-2">
-      <div v-for="(forecast, index) in forecasts" class="col-4 card text-bg-light rounded-0">
+      <div v-for="(forecast, index) in forecasts" class="col-4 card text-bg-dark border-white rounded-0 fade-in-effect">
         <div class="card-header">{{ formatDate(forecast.dt_txt) }}</div>
         <div class="card-body">
           <h5 class="card-title">{{ Math.round(forecast.main.temp) }}°C</h5>

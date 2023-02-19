@@ -30,8 +30,8 @@
 
       <p v-if="places" class="text-center">0-{{limit}} of 50 items</p>
 
-      <div v-for="(place, index) in places" class="col-sm-12">
-        <div class="card">
+      <div v-for="(place, index) in places" class="col-sm-12 fade-in-effect">
+        <div class="card text-bg-light bg-light shadow">
           <div class="card-body">
             <h5 class="card-title">{{ place.name }}</h5>
               <p class="card-text">{{ place.location.formatted_address }}</p>
