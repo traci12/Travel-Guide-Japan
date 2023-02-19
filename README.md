@@ -1,9 +1,9 @@
 <p align="center">
-<img src="public/images/screenshots/home-page.jpg" alt="Home Page">
-<img src="public/images/screenshots/weather-page.jpg" alt="Weather Page">
-<img src="public/images/screenshots/place-page.jpg" alt="Place Page">
-<img src="public/images/screenshots/search-place.jpg" alt="Search Place">
-<img src="public/images/screenshots/check-location.jpg" alt="Check Location">
+<img width="128" src="public/images/screenshots/home-page.jpg" alt="Home Page">
+<img width="128" src="public/images/screenshots/weather-page.jpg" alt="Weather Page">
+<img width="128" src="public/images/screenshots/place-page.jpg" alt="Place Page">
+<img width="128" src="public/images/screenshots/search-place.jpg" alt="Search Place">
+<img width="128" src="public/images/screenshots/check-location.jpg" alt="Check Location">
 </p>
 
 ## Travel Guide Japan
