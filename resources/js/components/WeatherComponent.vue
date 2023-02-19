@@ -29,7 +29,7 @@
 
     <div class="row m-2">
       <div v-for="(forecast, index) in forecasts" class="col-4 card text-bg-light rounded-0">
-        <div class="card-header">{{ forecast.dt_txt }}</div>
+        <div class="card-header">{{ formatDate(forecast.dt_txt) }}</div>
         <div class="card-body">
           <h5 class="card-title">{{ Math.round(forecast.main.temp) }}°C</h5>
           <p class="card-text">{{ forecast.weather[0].description }}</p>
@@ -58,6 +58,14 @@
       }
     },
     methods: {
+      formatDate(date) {
+        let today = new Date(date);
+        let month = today.toLocaleString('default', { month: 'short' })
+        let day = today.getDate();
+        let time = today.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+
+        return month + ' ' + day + ' ' + time;
+      },
       getWeather() {
         fetch('/weather/' + this.destination)
           .then(response => response.json())

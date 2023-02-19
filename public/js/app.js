@@ -5383,6 +5383,19 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    formatDate: function formatDate(date) {
+      var today = new Date(date);
+      var month = today.toLocaleString('default', {
+        month: 'short'
+      });
+      var day = today.getDate();
+      var time = today.toLocaleString('en-US', {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+      });
+      return month + ' ' + day + ' ' + time;
+    },
     getWeather: function getWeather() {
       var _this = this;
       fetch('/weather/' + this.destination).then(function (response) {
@@ -5541,7 +5554,7 @@ var render = function render() {
       staticClass: "col-4 card text-bg-light rounded-0"
     }, [_c("div", {
       staticClass: "card-header"
-    }, [_vm._v(_vm._s(forecast.dt_txt))]), _vm._v(" "), _c("div", {
+    }, [_vm._v(_vm._s(_vm.formatDate(forecast.dt_txt)))]), _vm._v(" "), _c("div", {
       staticClass: "card-body"
     }, [_c("h5", {
       staticClass: "card-title"
