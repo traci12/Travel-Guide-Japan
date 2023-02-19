@@ -31,7 +31,7 @@
       <div v-for="(forecast, index) in forecasts" class="col-4 card text-bg-dark border-white rounded-0 fade-in-effect">
         <div class="card-header">{{ formatDate(forecast.dt_txt) }}</div>
         <div class="card-body">
-          <h5 class="card-title">{{ Math.round(forecast.main.temp) }}°C</h5>
+          <h3 class="card-title">{{ Math.round(forecast.main.temp) }}°C</h3>
           <p class="card-text">{{ forecast.weather[0].description }}</p>
         </div>
       </div>

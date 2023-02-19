@@ -5494,7 +5494,11 @@ var render = function render() {
       staticClass: "card-title"
     }, [_vm._v(_vm._s(place.name))]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v(_vm._s(place.location.formatted_address))]), _vm._v(" "), _c("a", {
+    }, [_vm._v(_vm._s(place.location.formatted_address))]), _vm._v(" "), _c("p", [_vm._v("\n              Tags:\n              "), _vm._l(place.categories, function (category, index) {
+      return _c("span", {
+        staticClass: "badge text-bg-secondary m-1 p-2"
+      }, [_vm._v(_vm._s(category.name))]);
+    })], 2), _vm._v(" "), _c("a", {
       staticClass: "btn btn-danger",
       attrs: {
         target: "_blank",
@@ -5556,7 +5560,7 @@ var render = function render() {
       staticClass: "card-header"
     }, [_vm._v(_vm._s(_vm.formatDate(forecast.dt_txt)))]), _vm._v(" "), _c("div", {
       staticClass: "card-body"
-    }, [_c("h5", {
+    }, [_c("h3", {
       staticClass: "card-title"
     }, [_vm._v(_vm._s(Math.round(forecast.main.temp)) + "°C")]), _vm._v(" "), _c("p", {
       staticClass: "card-text"

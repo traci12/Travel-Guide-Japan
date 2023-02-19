@@ -35,6 +35,10 @@
           <div class="card-body">
             <h5 class="card-title">{{ place.name }}</h5>
               <p class="card-text">{{ place.location.formatted_address }}</p>
+              <p>
+                Tags:
+                <span v-for="(category, index) in place.categories" class="badge text-bg-secondary m-1 p-2">{{ category.name }}</span>
+              </p>
               <a target="_blank" 
                   :href="map+destination+' '+place.name+'/'+place.geocodes.main.latitude+','+place.geocodes.main.longitude" 
                   class="btn btn-danger">
