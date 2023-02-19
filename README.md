@@ -12,12 +12,12 @@ Travel Guide Japan is a travel information site for foreign tourists who wishes 
 
 Travel Guide Japan showcases the following features:
 
--Simple and clean front page to select a destination.
--Realtime weather information.
--3-hour weather forecast.
--Top 50 places to visit.
--Search a place of your choice.
--External map locator using Google Map.
+- Simple and clean front page to select a destination.
+- Realtime weather information.
+- 3-hour weather forecast.
+- Top 50 places to visit.
+- Search a place of your choice.
+- External map locator using Google Map.
 
 ## Installation
 
